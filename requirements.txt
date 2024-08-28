@@ -3,3 +3,5 @@ joblib
 nltk
 z3-solver
 multipledispatch
+matplotlib
+scipy

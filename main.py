@@ -165,21 +165,22 @@ if __name__ == '__main__':
     print("My initial nodes: ", graph.myInitialNodes)
     print("My terminal nodes: ", graph.myTerminalNodes)
 
-    f = open("localPatrerns.txt", "a")
-    localPatternCounter = 0
-    for i in graph.nodes:
-        print(i, ":", end=" ")
-        for n in graph.networkxGraph.neighbors(int(i)):
-            print(n, end=" ")
-            if int(i) in graph.myInitialNodes and int(n) in graph.myTerminalNodes:
-                adjMatrix[int(i)][int(n)] = 2
-            else:
-                adjMatrix[int(i)][int(n)] = 1
-            f.write(str(i) + "_" + str(n) + "\n ")
-            localPatternCounter += 1
-        print()
-    print("Total Local Patterns: ", localPatternCounter)
-    f.close()
+    # Saving local patterns in a file
+    # f = open("localPatrerns.txt", "a")
+    # localPatternCounter = 0
+    # for i in graph.nodes:
+    #     print(i, ":", end=" ")
+    #     for n in graph.networkxGraph.neighbors(int(i)):
+    #         print(n, end=" ")
+    #         if int(i) in graph.myInitialNodes and int(n) in graph.myTerminalNodes:
+    #             adjMatrix[int(i)][int(n)] = 2
+    #         else:
+    #             adjMatrix[int(i)][int(n)] = 1
+    #         f.write(str(i) + "_" + str(n) + "\n ")
+    #         localPatternCounter += 1
+    #     print()
+    # print("Total Local Patterns: ", localPatternCounter)
+    # f.close()
 
     counterTest = 0
     specialCounter = 0
@@ -239,25 +240,17 @@ if __name__ == '__main__':
         numberOfPaths += len(all_paths_sorted[i])
     print("Number of paths: ", len(all_paths_sorted))
     print("Number of total paths: ", numberOfPaths)
-    # print("all paths sorted: ", all_paths_sorted)
-    # all_sorted_paths_np_array = np.array(all_paths_sorted)
-    # np.save("my_array.npy", all_sorted_paths_np_array) 
 
-    # loaded_arr = np.load("my_array.npy")
+    # saving the paths in a file
+    # with open('pickle_test.data', 'wb') as f:
+    #     pickle.dump(all_paths_sorted, f)
+
+    # with open('pickle_test.data', 'rb') as f:
+    #     new_data = pickle.load(f)
     # numberOfPathsNext = 0
-    # for i in range(len(loaded_arr)):
-    #     numberOfPathsNext += len(loaded_arr[i])
-    # print("Number of paths: ", len(numberOfPathsNext))
-    with open('pickle_test.data', 'wb') as f:
-        pickle.dump(all_paths_sorted, f)
-
-    with open('pickle_test.data', 'rb') as f:
-        new_data = pickle.load(f)
-    numberOfPathsNext = 0
-    for i in range(len(new_data)):
-        numberOfPathsNext += len(new_data[i])
-    print("Number of paths: ", numberOfPathsNext)
-    exit()
+    # for i in range(len(new_data)):
+    #     numberOfPathsNext += len(new_data[i])
+    # print("Number of paths: ", numberOfPathsNext)
 
 
     elapsed_time = time.time() - start_time
