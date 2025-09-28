@@ -1,4 +1,3 @@
-### AutoFlows: Inferring Message Flows from System Communication Traces
 # AutoFlows: Inferring Message Flows from System Communication Traces ##
 ##### Authors: Bardia Nadimi, Hao Zheng
 Paper link: https://ieeexplore.ieee.org/document/11014455
